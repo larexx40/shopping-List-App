@@ -18,15 +18,18 @@
       <div class="index-table-wrapper">
         <div class="table-head">
           <span class="id-column">ID</span>
-          <span>Item</span>
+          <span class="name-column">Item</span>
+          <span class="quantity-column">Quantity</span>
+          <span class="price-column">Budget Price</span>
         </div>
         <ul class="table-body">
-          <% const items={id: 8, name: "Apple", quantity: 9} %>
+          <% items.forEach((item)=>{ %>
             <li>
-              <div class="item-data">
-                <span class="id-column"><%= items.id %></span>
-                <span class="name-column"><%= items.name %></span>
-                <span class="name-column"><%= items.quantity %></span>
+              <div class="item-data row">
+                <div class="id-column"><%= item.id %></div>
+                <div class="name-column"><%= item.name %></div>
+                <div class="quantity-column"><%= item.quantity %></div>
+                <div class="price-column"><%= item.price %></div>
               </div>
               <div class="item-menu">
                 <form action="" method="post">
@@ -35,7 +38,8 @@
                 <a href="/edit/">Edit</a>
               </div>
             </li>
-          
+          <% }); %>
+            
         </ul>
       </div>
     </div>
