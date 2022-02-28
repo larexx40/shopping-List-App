@@ -48,6 +48,27 @@ app.post('/delete/:id', (req, res) => {
   );
 });
 
+//call to edit form
+app.get('/edit/:id', (req, res) => {
+  connection.query(
+    'SELECT * FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.render('edit.ejs', {item: results[0]});
+    }
+  );
+});
+
+//save edited items
+app.post('/update/:id', (req, res) => {
+  connection.query(
+    'UPDATE items SET name = ? WHERE id = ?',
+    [req.body.itemName, req.params.id],
+    (error, results) => {
+      res.redirect('/index');
+    }
+  );
+});
 
 
 app.listen(3000);
