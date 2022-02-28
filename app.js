@@ -61,9 +61,12 @@ app.get('/edit/:id', (req, res) => {
 
 //save edited items
 app.post('/update/:id', (req, res) => {
+  const name = req.body.itemName;
+  const quantity= req.body.itemQuantity;
+  const price = req.body.itemPrice
   connection.query(
-    'UPDATE items SET name = ? WHERE id = ?',
-    [req.body.itemName, req.params.id],
+    'UPDATE items SET name = ?, quantity=?, price=? WHERE id = ?',
+    [name, quantity, price, req.params.id],
     (error, results) => {
       res.redirect('/index');
     }
