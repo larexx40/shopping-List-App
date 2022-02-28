@@ -17,8 +17,25 @@
       <div class="item-form-wrapper">
         <p class="form-label">Item</p>
         <form action="/update/<%= item.id %>" method="post">
-          <input type="text" name="itemName" value="<%= item.name %>">
-          <input type="submit" value="Update">
+          <div class="item-data row">
+            <div class="new-name-column"><span>Name</span></div>
+            <div class="new-name-input-column">
+              <input type="text" name="itemName" value="<%= item.name %>">
+            </div>
+          </div>
+          <div class="item-data row">
+            <div class="new-quantity-column"><span>Quantity</span></div>
+            <div class="new-quantity-input-column">
+              <input type="text" name="itemQuantity" value="<%= item.quantity %>">
+            </div>
+          </div>
+          <div class="item-data row">
+            <div class="new-quantity-column"><span>Budget Price</span></div>
+            <div class="new-quantity-input-column">
+              <input type="number" name="itemPrice" value="<%= item.price %>">
+            </div>
+          </div>
+          <input action="post" method="" type="submit" value="Add">
         </form>
       </div>
       <a href="/index" class="cancel-button">Go back</a>

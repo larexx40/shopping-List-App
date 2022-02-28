@@ -32,10 +32,10 @@
                 <div class="price-column"><%= item.price %></div>
               </div>
               <div class="item-menu">
-                <form action="" method="post">
+                <form action="/delete/<%= item.id; %>" method="post">
                   <input type="submit" value="Delete">
                 </form>
-                <a href="/edit/">Edit</a>
+                <a href="/edit/<%= item.id %>">Edit</a>
               </div>
             </li>
           <% }); %>
