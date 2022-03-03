@@ -28,14 +28,9 @@ app.post('/create', (req, res) => {
   const name = req.body.itemName;
   const quantity= req.body.itemQuantity;
   const price = req.body.itemPrice
-  connection.query(
-    'INSERT INTO items(name, quantity, price) VALUES (?, ?, ?)',
-    [name, quantity, price],
-    (err, results)=>{
-      if(err){throw err}
-      else{res.redirect('/index')}
-    }
-  )
+  console.log(name);
+  console.log(quantity);
+  console.log(price);
 });
 
 app.post('/delete/:id', (req, res) => {
